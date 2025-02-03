@@ -1,5 +1,6 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:ticket_app/pages/home_screen.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -17,7 +18,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   }
 
   final appScreens = [
-    const Text('Home'),
+    const HomeScreen(),
     const Text('Search'),
     const Text('Tickets'),
     const Text('Profile'),
@@ -26,12 +27,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Center(child: Text('Kereta Tiket App')),
-      ),
-      body: Center(
-        child: appScreens[_activeTab],
-      ),
+      body: appScreens[_activeTab],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _activeTab,
         onTap: _onItemTapped,
