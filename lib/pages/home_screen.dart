@@ -2,6 +2,8 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket_app/res/media.dart';
 import 'package:ticket_app/res/styles/app_styles.dart';
+import 'package:ticket_app/widgets/app_subheader.dart';
+import 'package:ticket_app/widgets/ticket_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -60,9 +62,18 @@ class HomeScreen extends StatelessWidget {
                             color: Color(0xFFBFC205),
                           ),
                         ],
-                      ))
+                      )),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  AppSubheader(
+                      subheader: "Upcoming Flights", linkText: "View All"),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  TicketCard()
                 ],
-              ))
+              )),
         ],
       ),
     );
