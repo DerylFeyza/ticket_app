@@ -6,7 +6,8 @@ import 'package:ticket_app/widgets/icons/dot_icon.dart';
 import 'package:ticket_app/widgets/text_style_ticket.dart';
 
 class TicketCard extends StatelessWidget {
-  const TicketCard({super.key});
+  final Map<String, dynamic> ticket;
+  const TicketCard({super.key, required this.ticket});
 
   @override
   Widget build(BuildContext context) {
@@ -33,18 +34,18 @@ class TicketCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           TextStyleTicket(
-                              text: "Ngawi",
+                              text: ticket['from']['code'],
                               textStyle: AppStyles.headlineStyle3),
                           SizedBox(
                             height: 3,
                           ),
                           TextStyleTicket(
-                            text: "Stasiun Ngawi",
+                            text: ticket['from']['name'],
                           ),
                         ],
                       ),
                       SizedBox(
-                        width: screen.width * 0.05,
+                        width: screen.width * 0.1,
                       ),
                       Expanded(
                         child: Column(
@@ -79,26 +80,26 @@ class TicketCard extends StatelessWidget {
                               height: 3,
                             ),
                             TextStyleTicket(
-                              text: "8 Jam",
+                              text: ticket['flying_time'],
                             ),
                           ],
                         ),
                       ),
                       SizedBox(
-                        width: screen.width * 0.05,
+                        width: screen.width * 0.1,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           TextStyleTicket(
                               align: TextAlign.end,
-                              text: "Bogor",
+                              text: ticket['to']['code'],
                               textStyle: AppStyles.headlineStyle3),
                           SizedBox(
                             height: 3,
                           ),
                           TextStyleTicket(
-                            text: "Stasiun Bogor",
+                            text: ticket['to']['name'],
                             align: TextAlign.end,
                           ),
                         ],
@@ -158,7 +159,8 @@ class TicketCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TextStyleTicket(
-                          text: "1 May", textStyle: AppStyles.headlineStyle3),
+                          text: ticket['date'],
+                          textStyle: AppStyles.headlineStyle3),
                       TextStyleTicket(
                           text: "Date", textStyle: AppStyles.headlineStyle4),
                     ],
@@ -167,7 +169,8 @@ class TicketCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       TextStyleTicket(
-                          text: "8:00 AM", textStyle: AppStyles.headlineStyle3),
+                          text: ticket['departure_time'],
+                          textStyle: AppStyles.headlineStyle3),
                       TextStyleTicket(
                           text: "Departure Time",
                           textStyle: AppStyles.headlineStyle4),
@@ -177,7 +180,8 @@ class TicketCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       TextStyleTicket(
-                          text: "23", textStyle: AppStyles.headlineStyle3),
+                          text: ticket['number'],
+                          textStyle: AppStyles.headlineStyle3),
                       TextStyleTicket(
                           text: "Number", textStyle: AppStyles.headlineStyle4),
                     ],

@@ -1,5 +1,6 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:ticket_app/res/data/json_data.dart';
 import 'package:ticket_app/res/media.dart';
 import 'package:ticket_app/res/styles/app_styles.dart';
 import 'package:ticket_app/widgets/app_subheader.dart';
@@ -71,7 +72,14 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-                  TicketCard()
+                  SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                          children: ticketList
+                              .map((ticket) => TicketCard(
+                                    ticket: ticket,
+                                  ))
+                              .toList()))
                 ],
               )),
         ],
