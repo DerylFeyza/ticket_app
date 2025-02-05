@@ -68,7 +68,9 @@ class HomeScreen extends StatelessWidget {
                     height: 40,
                   ),
                   AppSubheader(
-                      subheader: "Upcoming Flights", linkText: "View All"),
+                      subheader: "Upcoming Flights",
+                      linkText: "View All",
+                      linkTo: "all_tickets"),
                   SizedBox(
                     height: 20,
                   ),
@@ -76,10 +78,23 @@ class HomeScreen extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                           children: ticketList
-                              .map((ticket) => TicketCard(
-                                    ticket: ticket,
+                              .map((ticket) => Container(
+                                    margin: EdgeInsets.only(right: 15),
+                                    child: TicketCard(
+                                      ticket: ticket,
+                                    ),
                                   ))
-                              .toList()))
+                              .toList())),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  AppSubheader(
+                      subheader: "Hotels",
+                      linkText: "View All",
+                      linkTo: "all_tickets"),
+                  SizedBox(
+                    height: 20,
+                  ),
                 ],
               )),
         ],
