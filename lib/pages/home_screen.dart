@@ -4,6 +4,7 @@ import 'package:ticket_app/res/data/json_data.dart';
 import 'package:ticket_app/res/media.dart';
 import 'package:ticket_app/res/styles/app_styles.dart';
 import 'package:ticket_app/widgets/app_subheader.dart';
+import 'package:ticket_app/widgets/hotel_card.dart';
 import 'package:ticket_app/widgets/ticket_card.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -95,6 +96,17 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: hotelList
+                          .map((hotel) => Container(
+                                margin: EdgeInsets.only(right: 15),
+                                child: HotelCard(hotelData: hotel),
+                              ))
+                          .toList(),
+                    ),
+                  )
                 ],
               )),
         ],

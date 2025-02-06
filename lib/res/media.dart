@@ -1,4 +1,4 @@
 class AppMedia {
-  static const _baseImgPath = 'assets/images/';
-  static const icon = '${_baseImgPath}icon.png';
+  static const baseImgPath = 'assets/images';
+  static const icon = '$baseImgPath/icon.png';
 }
