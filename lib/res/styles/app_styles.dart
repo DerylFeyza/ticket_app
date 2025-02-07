@@ -5,7 +5,9 @@ class AppStyles {
   static Color textColor = const Color(0xFF3b3b3b);
   static Color bgColor = const Color(0xFFeeedf2);
   static Color brand = const Color(0xFF526799);
+  static Color brandWhite = const Color(0xFFF4F6FD);
   static Color brandOrange = const Color(0xFFF37B67);
+  static Color brandGray = const Color(0xFFBFC2DF);
 
   static TextStyle textStyle =
       TextStyle(fontSize: 16, fontWeight: FontWeight.normal, color: textColor);
