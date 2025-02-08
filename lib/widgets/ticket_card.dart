@@ -56,8 +56,8 @@ class TicketCard extends StatelessWidget {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      DotIcon(),
-                                      DotIcon(),
+                                      DotIcon(color: Colors.white),
+                                      DotIcon(color: Colors.white),
                                     ]),
                               ),
                               SizedBox(

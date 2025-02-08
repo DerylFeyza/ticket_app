@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_app/pages/search/widgets/find_button.dart';
-import 'package:ticket_app/pages/search/widgets/search_tabs.dart';
+import 'package:ticket_app/widgets/tabs_widget.dart';
 import 'package:ticket_app/pages/search/widgets/text_bubble.dart';
 import 'package:ticket_app/res/media.dart';
 import 'package:ticket_app/res/styles/app_styles.dart';
@@ -27,7 +27,10 @@ class SearchScreen extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          SearchTabs(),
+          TabsWidget(
+            leftText: "Airplane Tickets",
+            rightText: "Hotels",
+          ),
           SizedBox(
             height: 25,
           ),

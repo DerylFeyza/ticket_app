@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       routes: {
         '/': (context) => BottomNavBar(),
-        'all_tickets': (context) => TicketScreen()
+        'all_tickets': (context) => TicketsScreen()
       },
     );
   }

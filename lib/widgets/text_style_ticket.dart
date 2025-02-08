@@ -5,12 +5,14 @@ class TextStyleTicket extends StatelessWidget {
   final String text;
   final TextAlign align;
   final TextStyle? textStyle;
+  final Color color;
 
   const TextStyleTicket(
       {super.key,
       required this.text,
       this.align = TextAlign.start,
-      this.textStyle});
+      this.textStyle,
+      this.color = Colors.white});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class TextStyleTicket extends StatelessWidget {
     return Text(
       text,
       textAlign: align,
-      style: style.copyWith(color: Colors.white),
+      style: style.copyWith(color: color),
     );
   }
 }

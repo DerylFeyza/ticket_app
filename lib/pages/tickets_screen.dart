@@ -3,8 +3,8 @@ import 'package:ticket_app/res/data/json_data.dart';
 import 'package:ticket_app/res/styles/app_styles.dart';
 import 'package:ticket_app/widgets/ticket_card.dart';
 
-class TicketScreen extends StatelessWidget {
-  const TicketScreen({super.key});
+class TicketsScreen extends StatelessWidget {
+  const TicketsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

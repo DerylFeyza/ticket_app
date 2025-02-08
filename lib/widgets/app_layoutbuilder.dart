@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
 class AppLayoutBuilder extends StatelessWidget {
-  const AppLayoutBuilder({super.key, required this.divider, this.width = 3});
+  const AppLayoutBuilder(
+      {super.key,
+      required this.divider,
+      this.width = 3,
+      this.color = Colors.white});
   final int divider;
+  final Color color;
   final double width;
   @override
   Widget build(BuildContext context) {
@@ -18,7 +23,7 @@ class AppLayoutBuilder extends StatelessWidget {
                     width: width,
                     child: DecoratedBox(
                         decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: color,
                     )),
                   )));
     });
