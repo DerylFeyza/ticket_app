@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:ticket_app/res/media.dart';
 import 'package:ticket_app/res/styles/app_styles.dart';
 
@@ -30,7 +31,6 @@ class HotelCard extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.only(top: 15, left: 10),
-            height: 120,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -42,7 +42,8 @@ class HotelCard extends StatelessWidget {
                 Text(hotelData['location'],
                     style:
                         AppStyles.headlineStyle3.copyWith(color: Colors.white)),
-                Text("Rp. ${hotelData['price']} / Night",
+                Text(
+                    "Rp. ${NumberFormat("#,###", "id_ID").format(hotelData['price'])} / Night",
                     style:
                         AppStyles.headlineStyle2.copyWith(color: Colors.white)),
               ],

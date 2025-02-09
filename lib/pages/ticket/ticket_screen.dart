@@ -8,8 +8,22 @@ import 'package:ticket_app/widgets/tabs_widget.dart';
 import 'package:ticket_app/widgets/text_style_ticket.dart';
 import 'package:ticket_app/widgets/ticket_card.dart';
 
-class TicketScreen extends StatelessWidget {
+class TicketScreen extends StatefulWidget {
   const TicketScreen({super.key});
+
+  @override
+  State<TicketScreen> createState() => _TicketScreenState();
+}
+
+class _TicketScreenState extends State<TicketScreen> {
+  late Map<String, dynamic> ticketData;
+
+  @override
+  void didChangeDependencies() {
+    var args = ModalRoute.of(context)?.settings.arguments as Map? ?? {};
+    ticketData = args['data'] ?? ticketList[0];
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +98,7 @@ class TicketScreen extends StatelessWidget {
           SizedBox(
             height: 25,
           ),
-          TicketCard(ticket: ticketList[0]),
+          TicketCard(ticket: ticketData),
         ],
       ),
     );
@@ -148,7 +162,7 @@ class TicketScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TextStyleTicket(
-                text: "hawkatoa",
+                text: ticketData['from']['code'],
                 textStyle: AppStyles.headlineStyle3,
                 color: Colors.black,
               ),
@@ -156,7 +170,7 @@ class TicketScreen extends StatelessWidget {
                 height: 3,
               ),
               TextStyleTicket(
-                text: "hawkatoa",
+                text: ticketData['from']['name'],
                 color: Colors.black,
               ),
             ],
@@ -194,7 +208,7 @@ class TicketScreen extends StatelessWidget {
                   height: 3,
                 ),
                 TextStyleTicket(
-                  text: "hawkatoa",
+                  text: ticketData['flying_time'],
                   color: Colors.black,
                 ),
               ],
@@ -207,7 +221,7 @@ class TicketScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               TextStyleTicket(
-                text: "hawkatoa",
+                text: ticketData['to']['code'],
                 textStyle: AppStyles.headlineStyle3,
                 color: Colors.black,
               ),
@@ -215,7 +229,7 @@ class TicketScreen extends StatelessWidget {
                 height: 3,
               ),
               TextStyleTicket(
-                text: "hawkatoa",
+                text: ticketData['to']['name'],
                 color: Colors.black,
               ),
             ],
@@ -235,7 +249,7 @@ class TicketScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TextStyleTicket(
-                text: "hawkatoa",
+                text: ticketData['date'],
                 textStyle: AppStyles.headlineStyle3,
                 color: Colors.black,
               ),
@@ -243,7 +257,24 @@ class TicketScreen extends StatelessWidget {
                 height: 3,
               ),
               TextStyleTicket(
-                text: "hawkatoa",
+                text: "Date",
+                color: Colors.black,
+              ),
+            ],
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              TextStyleTicket(
+                text: ticketData['departure_time'],
+                textStyle: AppStyles.headlineStyle3,
+                color: Colors.black,
+              ),
+              SizedBox(
+                height: 3,
+              ),
+              TextStyleTicket(
+                text: "Departure Time",
                 color: Colors.black,
               ),
             ],
@@ -252,7 +283,7 @@ class TicketScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               TextStyleTicket(
-                text: "hawkatoa",
+                text: ticketData['number'],
                 textStyle: AppStyles.headlineStyle3,
                 color: Colors.black,
               ),
@@ -260,24 +291,7 @@ class TicketScreen extends StatelessWidget {
                 height: 3,
               ),
               TextStyleTicket(
-                text: "hawkatoa",
-                color: Colors.black,
-              ),
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              TextStyleTicket(
-                text: "hawkatoa",
-                textStyle: AppStyles.headlineStyle3,
-                color: Colors.black,
-              ),
-              SizedBox(
-                height: 3,
-              ),
-              TextStyleTicket(
-                text: "hawkatoa",
+                text: "Number",
                 color: Colors.black,
               ),
             ],

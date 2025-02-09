@@ -19,10 +19,16 @@ class TicketsScreen extends StatelessWidget {
             scrollDirection: Axis.vertical,
             child: Column(
               children: ticketList
-                  .map((ticket) => Container(
-                        margin: EdgeInsets.only(top: 15),
-                        child: TicketCard(
-                          ticket: ticket,
+                  .map((ticket) => GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, 'ticket',
+                              arguments: {'data': ticket});
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(top: 15),
+                          child: TicketCard(
+                            ticket: ticket,
+                          ),
                         ),
                       ))
                   .toList(),

@@ -79,10 +79,15 @@ class HomeScreen extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                           children: ticketList
-                              .map((ticket) => Container(
-                                    margin: EdgeInsets.only(right: 15),
-                                    child: TicketCard(
-                                      ticket: ticket,
+                              .map((ticket) => GestureDetector(
+                                    onTap: () => Navigator.pushNamed(
+                                        context, 'ticket',
+                                        arguments: {'data': ticket}),
+                                    child: Container(
+                                      margin: EdgeInsets.only(right: 15),
+                                      child: TicketCard(
+                                        ticket: ticket,
+                                      ),
                                     ),
                                   ))
                               .toList())),
@@ -92,7 +97,7 @@ class HomeScreen extends StatelessWidget {
                   AppSubheader(
                       subheader: "Hotels",
                       linkText: "View All",
-                      linkTo: "all_tickets"),
+                      linkTo: "all_hotels"),
                   SizedBox(
                     height: 20,
                   ),
@@ -100,9 +105,14 @@ class HomeScreen extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: hotelList
-                          .map((hotel) => Container(
-                                margin: EdgeInsets.only(right: 15),
-                                child: HotelCard(hotelData: hotel),
+                          .map((hotel) => GestureDetector(
+                                onTap: () => Navigator.pushNamed(
+                                    context, 'hotel',
+                                    arguments: {'data': hotel}),
+                                child: Container(
+                                  margin: EdgeInsets.only(right: 15),
+                                  child: HotelCard(hotelData: hotel),
+                                ),
                               ))
                           .toList(),
                     ),
